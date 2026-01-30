@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-mqtt-broker
+spec:
+  replicas: 3 # Start with 3, scale to 100 for billions
+  selector:
+    matchLabels:
+      app: custom-mqtt-broker
+  template:
+    metadata:
+      labels:
+        app: custom-mqtt-broker
+    spec:
+      containers:
+      - name: broker
+        image: my-custom-broker:latest
+        ports:
+        - containerPort: 1883
+        env:
+        - name: REDIS_HOST
+          value: "redis-service" # Needs a Redis Service
+        - name: REDIS_PORT
+          value: "6379"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mqtt-broker-service
+spec:
+  selector:
+    app: custom-mqtt-broker
+  ports:
+  - protocol: TCP
+    port: 1883
+    targetPort: 1883
+  type: ClusterIP

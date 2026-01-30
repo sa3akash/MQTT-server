@@ -1,0 +1,33 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^25.1.0",
+    "aedes": "^0.51.3",
+    "aedes-server-factory": "^0.2.1",
+    "cors": "^2.8.6",
+    "error-express": "^1.3.1",
+    "express": "^5.2.1",
+    "mqtt": "^5.14.1",
+    "redis": "^5.10.0",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.48.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/ws": "^8.18.1",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "ws": "^8.19.0"
+  }
+}

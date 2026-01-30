@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: socket-gateway
+spec:
+  replicas: 3 # Scale this to 1000 for billions
+  selector:
+    matchLabels:
+      app: socket-gateway
+  template:
+    metadata:
+      labels:
+        app: socket-gateway
+    spec:
+      containers:
+        - name: socket-gateway
+          image: my-socket-app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MQTT_URL
+              value: "tcp://mqtt-broker-service:1883"
+              # Points to the separate Broker Service below
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: socket-gateway-service
+spec:
+  selector:
+    app: socket-gateway
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+---
+#
+# PRODUCTION MQTT BROKER (Example: EMQX / VerneMQ)
+# In real life, use a Helm Chart for this part.
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt-broker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mqtt-broker
+  template:
+    metadata:
+      labels:
+        app: mqtt-broker
+    spec:
+      containers:
+        - name: emqx
+          image: emqx/emqx:latest
+          ports:
+            - containerPort: 1883
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mqtt-broker-service
+spec:
+  selector:
+    app: mqtt-broker
+  ports:
+    - protocol: TCP
+      port: 1883
+      targetPort: 1883

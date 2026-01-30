@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Real-time Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <h1>Connect to Social Stream</h1>
+        <input type="text" id="username" placeholder="Enter Username (e.g. user1)">
+        <button onclick="connect()">Connect</button>
+    </div>
+
+    <div id="app" style="display:none;">
+        <div class="header">
+            <span id="connected-user"></span>
+            <span id="status" class="status">Connected</span>
+        </div>
+        
+        <div class="container">
+            <div class="feed-section">
+                <h2>Live Feed</h2>
+                <div class="controls">
+                    <button onclick="simulateAction('post')">New Post</button>
+                    <button onclick="joinGroup()" style="background:#ff9800;">Join Group</button>
+                    <button onclick="sendGroupBefore()" style="background:#ff9800;">Group Msg</button>
+                </div>
+                <div id="feed" class="feed">
+                    <!-- Posts go here -->
+                </div>
+            </div>
+            
+            <div class="notifications-section">
+                <h2>Notifications / Logs</h2>
+                <div id="logs" class="logs"></div>
+            </div>
+        </div>
+
+        <div class="actions-panel">
+            <h3>Simulate Actions on User: <input type="text" id="target-user" placeholder="Target User ID"></h3>
+            <div class="buttons">
+                <button class="btn-like" onclick="sendEvent('like')">❤️ Like</button>
+                <button class="btn-comment" onclick="sendEvent('comment')">💬 Comment</button>
+                <button class="btn-share" onclick="sendEvent('share')">🚀 Share</button>
+                <button class="btn-dm" onclick="sendEvent('chat')">📩 DM</button>
+                <button class="btn-dm" style="background:black;" onclick="simulateCall()">📞 Video Call</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>

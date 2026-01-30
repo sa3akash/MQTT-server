@@ -1,0 +1,110 @@
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+}
+#login-screen {
+  max-width: 300px;
+  margin: 100px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+#app {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.header {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.status {
+  color: green;
+  font-weight: bold;
+}
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+.feed-section,
+.notifications-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.logs {
+  height: 400px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 12px;
+  background: #333;
+  color: #0f0;
+  padding: 10px;
+  border-radius: 4px;
+}
+.log-item {
+  margin-bottom: 4px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 2px;
+}
+.actions-panel {
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.buttons button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  transition: opacity 0.2s;
+}
+.buttons button:hover {
+  opacity: 0.8;
+}
+.btn-like {
+  background-color: #e41e3f;
+}
+.btn-comment {
+  background-color: #0084ff;
+}
+.btn-share {
+  background-color: #25d366;
+}
+.btn-dm {
+  background-color: #8e44ad;
+}
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.feed-item {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.feed-item .meta {
+  font-size: 12px;
+  color: #65676b;
+  margin-bottom: 5px;
+}

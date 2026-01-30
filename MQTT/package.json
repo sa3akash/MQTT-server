@@ -1,0 +1,16 @@
+{
+  "name": "scalable-mqtt-broker",
+  "version": "1.0.0",
+  "description": "A horizontally scalable MQTT broker using Aedes and Redis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "aedes": "^0.51.0",
+    "aedes-server-factory": "^1.1.0",
+    "mqemitter-redis": "^5.0.0",
+    "aedes-persistence-redis": "^11.0.0",
+    "ioredis": "^5.3.2"
+  }
+}
